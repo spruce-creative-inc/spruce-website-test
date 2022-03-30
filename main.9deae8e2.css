@@ -1,25 +1,25 @@
 @font-face {
-  font-family: "Brygada 1918";
-  src: url("/Brygada1918-Regular.632a4973.ttf");
-  font-weight: normal;
+  font-family: Brygada\1918;
+  src: url(./Brygada1918-Regular.f3e11176.ttf);
+  font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: "Brygada 1918";
-  src: url("/Brygada1918-Italic.7b8ca8db.ttf");
-  font-weight: normal;
+  font-family: Brygada\1918;
+  src: url(./Brygada1918-Italic.a33de6e7.ttf);
+  font-weight: 400;
   font-style: italic;
 }
 @font-face {
-  font-family: "Brygada 1918";
-  src: url("/Brygada1918-Bold.1f207221.ttf");
-  font-weight: bold;
+  font-family: Brygada\1918;
+  src: url(./Brygada1918-Bold.4a9da33c.ttf);
+  font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: "Brygada 1918";
-  src: url("/Brygada1918-BoldItalic.00e4a302.ttf");
-  font-weight: bold;
+  font-family: Brygada\1918;
+  src: url(./Brygada1918-BoldItalic.002b8fad.ttf);
+  font-weight: 700;
   font-style: italic;
 }
 html {
@@ -29,42 +29,37 @@ html {
   color: #fff;
   box-sizing: border-box;
 }
-
 *,
-*::after,
-*::before {
+:after,
+:before {
   box-sizing: inherit;
 }
-
 body {
   margin: 0;
   overflow-x: hidden;
 }
-
 .square {
   width: 150px;
   height: 150px;
-  background-color: fuchsia;
+  background-color: #f0f;
 }
-
 .dummy-panel {
   height: 100vh;
   background-color: var(--color);
   text-align: center;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.dummy-panel,
+.horPanels {
+  display: flex;
   position: relative;
 }
-
 .horPanels {
   width: 300vw;
   min-height: 100vh;
-  position: relative;
-  display: flex;
 }
-
 .panel {
   background-color: #77d83b;
   text-align: center;
@@ -73,63 +68,55 @@ body {
   align-items: center;
   justify-content: center;
   flex-grow: 1;
-  /* opacity: 0.5; */
 }
-
 .panel h2 {
   font-size: 3rem;
   margin: 0.5rem;
 }
-
 .panel p {
   font-size: 1.5rem;
   margin: 0;
   max-width: 35em;
 }
-
 .panel-2 {
   background-color: #3bd894;
 }
-
 .panel-3 {
   background-color: #3b9cd8;
   color: #fff;
 }
-
 .panel-4 {
   background-color: #9e3bd8;
   color: #fff;
 }
-
 .panel-5 {
   background-color: #d83b53;
   color: #fff;
 }
-
 .overPanel {
   height: 100vh;
   position: relative;
 }
-
 .card-wrap {
   padding: 1.5rem 0;
   grid-column: 5/15;
 }
-
 .card-flex {
   --cardGap: 1.5rem;
   --cardWidth: 20rem;
   display: flex;
   gap: var(--cardGap);
   padding-right: 1.5rem;
-  width: calc(var(--cardWidth) * var(--cardCount) + var(--cardGap) * (var(--cardCount) - 1));
+  width: calc(
+    var(--cardWidth) * var(--cardCount) + var(--cardGap) *
+      (var(--cardCount) - 1)
+  );
 }
-
 .card {
   flex: 0 0 var(--cardWidth);
   overflow: hidden;
   border-radius: 1rem;
-  box-shadow: 0 0.25rem 1rem #0002;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.13333333333333333);
   text-decoration: none;
   color: #000;
   background-color: #fff;
@@ -146,8 +133,9 @@ body {
   width: 100%;
   height: 100%;
 }
-.card:hover, .card:focus {
-  box-shadow: 0 0.25rem 2rem #0003;
+.card:focus,
+.card:hover {
+  box-shadow: 0 0.25rem 2rem rgba(0, 0, 0, 0.2);
 }
 .card:last-child {
   margin-right: 1.5rem;
@@ -160,14 +148,13 @@ body {
 .card p {
   margin: 0;
 }
-
 .ball {
   width: 7.5rem;
   height: 7.5rem;
   background-color: #000;
   color: #d6869e;
   font-size: 1.25rem;
-  font-weight: bold;
+  font-weight: 700;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -178,24 +165,33 @@ body {
   pointer-events: none;
   z-index: 100000;
 }
-
 .container {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: 1fr repeat(12, min(5.875rem, calc((100% - 19.5rem) / 12))) 1fr;
+  grid-template-columns: 1fr repeat(
+      12,
+      min(5.875rem, calc(8.33333% - 1.625rem))
+    ) 1fr;
   width: 100%;
 }
-
 .fancy-text {
   font-size: 7.25rem;
-  font-family: "Brygada 1918", serif;
+  font-family: Brygada\1918, serif;
   line-height: 1;
   background-color: #d6869e;
   color: #000;
-  background-image: radial-gradient(closest-side, #009ba6, #009ba600);
+  background-image: radial-gradient(
+    closest-side,
+    #009ba6,
+    rgba(0, 155, 166, 0)
+  );
   background-size: 25rem 25rem;
   background-position: var(--pos1);
   background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -ms-background-clip: text;
+  -o-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
@@ -204,12 +200,11 @@ body {
   text-fill-color: transparent;
 }
 .fancy-text--wrap {
-  grid-column: 4/span 10;
+  grid-column: 4 / span 10;
 }
-
 @keyframes fancyText {
   0% {
-    background-position: 60% top, left bottom;
+    background-position: 60% top, 0 100%;
   }
   33% {
     background-position: 40% 60%, left 30%;
@@ -217,7 +212,7 @@ body {
   66% {
     background-position: 20% 30%, 50% 60%;
   }
-  100% {
+  to {
     background-position: -20% -20%, right 80%;
   }
 }
@@ -229,7 +224,7 @@ body {
   position: relative;
   grid-column: 5/15;
 }
-.services__balls::before {
+.services__balls:before {
   content: " ";
   position: absolute;
   border-radius: 1rem 0 0 1rem;
@@ -250,7 +245,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 1.25rem;
   text-align: center;
   padding: 1rem;
@@ -258,54 +253,53 @@ body {
   position: absolute;
 }
 .services__ball.services__ball--mixer {
-  background-color: #d0d02977;
+  background-color: rgba(208, 208, 41, 0.4666666666666667);
 }
 .services__ball--turquoise {
   background-color: #009ba6;
   color: #fff;
 }
 .services__ball--turquoise.services__ball--mixer {
-  background-color: #009ba677;
+  background-color: rgba(0, 155, 166, 0.4666666666666667);
 }
 .services__ball--pink {
   background-color: #ed6995;
 }
 .services__ball--pink.services__ball--mixer {
-  background-color: #ed699577;
+  background-color: rgba(237, 105, 149, 0.4666666666666667);
 }
 .services__ball--blue {
   background-color: #004869;
   color: #fff;
 }
 .services__ball--blue.services__ball--mixer {
-  background-color: #00486977;
+  background-color: rgba(0, 72, 105, 0.4666666666666667);
 }
 .services__ball--track-1 {
   left: 3%;
   top: 3%;
-  animation: ballOne 6s infinite linear;
+  animation: ballOne 6s linear infinite;
 }
 .services__ball--track-2 {
   left: 35%;
   top: 20%;
-  animation: ballTwo 8s infinite linear;
+  animation: ballTwo 8s linear infinite;
 }
 .services__ball--track-3 {
   left: 15%;
   bottom: 5%;
-  animation: ballThree 7s infinite linear;
+  animation: ballThree 7s linear infinite;
 }
 .services__ball--track-4 {
   left: 65%;
   bottom: 15%;
-  animation: ballFour 9s infinite linear;
+  animation: ballFour 9s linear infinite;
 }
 .services__ball--track-5 {
   left: 75%;
   top: 10%;
-  animation: ballFive 8.5s infinite linear;
+  animation: ballFive 8.5s linear infinite;
 }
-
 @keyframes ballOne {
   0% {
     left: 3%;
@@ -319,7 +313,7 @@ body {
     left: 6%;
     top: 20%;
   }
-  100% {
+  to {
     left: 3%;
     top: 3%;
   }
@@ -337,7 +331,7 @@ body {
     left: 45%;
     top: 10%;
   }
-  100% {
+  to {
     left: 35%;
     top: 20%;
   }
@@ -355,7 +349,7 @@ body {
     left: 5%;
     bottom: 25%;
   }
-  100% {
+  to {
     left: 15%;
     bottom: 5%;
   }
@@ -373,7 +367,7 @@ body {
     left: 50%;
     bottom: 35%;
   }
-  100% {
+  to {
     left: 65%;
     bottom: 15%;
   }
@@ -391,13 +385,9 @@ body {
     left: 60%;
     top: 20%;
   }
-  100% {
+  to {
     left: 75%;
     top: 10%;
   }
 }
-
-
-
-
-/*# sourceMappingURL=/main.c52e0fe2.css.map */
+/*# sourceMappingURL=/main.9deae8e2.css.map */
